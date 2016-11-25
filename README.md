@@ -1,7 +1,14 @@
 # Pandom
+[![license](https://img.shields.io/github/license/gluons/pandom.svg?style=flat-square)](https://github.com/gluons/pandom/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/pandom.svg?style=flat-square)](https://www.npmjs.com/package/pandom)
+[![npm](https://img.shields.io/npm/dt/pandom.svg?style=flat-square)](https://www.npmjs.com/package/pandom)
+[![Travis](https://img.shields.io/travis/gluons/pandom.svg?style=flat-square)](https://travis-ci.org/gluons/pandom)
+
 🔀 Randomize a primitive/built-in data type in JavaScript.
 
-🚧 WIP
+<br>
+**🚧 WIP**
+<br>
 
 ## Install
 Install via [NPM](https://www.npmjs.com/):
