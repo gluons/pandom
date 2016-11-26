@@ -28,34 +28,6 @@ require('pandom');
 ```
 
 ## API
-### String.prototype.random(length)
-Randomize a string from the original string.
-
-#### length
-Type: `Number`  
-Default: _Same length as original string length._
-
-Length of a randomized string.
-
-> If no length, it'll return a randomized string with same length as the original string.
-
-```javascript
-let str = 'string';
-console.log(str.random()); // 'intrgt'
-```
-
-```javascript
-let str = 'string';
-console.log(str.random(20)); // 'gngrtsttrrginginrntg'
-```
-
-### String.prototype.shuffle()
-Shuffle the original string.
-
-```javascript
-let str = 'string';
-console.log(str.shuffle()); // 'rgntsi'
-```
 
 ### Array.prototype.random(length)
 Randomize an array from the original array.
@@ -84,4 +56,33 @@ Shuffle the original array. **(Doesn't change the original array)**
 ```javascript
 let arr = [1, 2, 3, 4, 5];
 console.log(arr.shuffle()); // [1, 4, 5, 3, 2]
+```
+
+### String.prototype.random(length)
+Randomize a string from the original string.
+
+#### length
+Type: `Number`  
+Default: _Same length as original string length._
+
+Length of a randomized string.
+
+> If no length, it'll return a randomized string with same length as the original string.
+
+```javascript
+let str = 'string';
+console.log(str.random()); // 'intrgt'
+```
+
+```javascript
+let str = 'string';
+console.log(str.random(20)); // 'gngrtsttrrginginrntg'
+```
+
+### String.prototype.shuffle()
+Shuffle the original string.
+
+```javascript
+let str = 'string';
+console.log(str.shuffle()); // 'rgntsi'
 ```

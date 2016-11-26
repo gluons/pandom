@@ -4,7 +4,7 @@
   "description": "Randomize a primitive/built-in data type in JavaScript.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "ava --verbose"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "randomatic": "^1.1.6"
   },
   "devDependencies": {
-    "chai": "*",
-    "mocha": "*"
+    "ava": "^0.17.0"
   }
 }
