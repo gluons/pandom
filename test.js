@@ -5,17 +5,17 @@ require('./');
 const test = require('ava');
 
 test('Array.prototype.random()', t => {
-	let arr = ['a', 'b', 'c', 'd', 'e'];
+	let arr = [1, 2, 3, 4, 5];
 	let randArr = arr.random();
 	t.is(randArr.length, arr.length, 'randomized array has same length as original array');
 	t.notDeepEqual(randArr, arr, 'randomized array is not equal to original array');
 	for (let item of randArr) {
-		t.true(randArr.includes(item), `original array has '${item.toString()}'`);
+		t.true(randArr.indexOf(item) != -1, `original array has ${item.toString()}`);
 	}
 });
 
 test('Array.prototype.shuffle()', t => {
-	let arr = ['a', 'b', 'c', 'd', 'e'];
+	let arr = [1, 2, 3, 4, 5];
 	let shufArr = arr.shuffle();
 	t.is(shufArr.length, arr.length, 'shuffled array has same length as original array');
 	t.notDeepEqual(shufArr, arr, 'shuffled array is not equal to original array');
