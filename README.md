@@ -38,6 +38,7 @@ Default: _Same length as original string length._
 Length of a randomized string.
 
 > If no length, it'll return a randomized string with same length as the original string.
+
 ```javascript
 let str = 'string';
 console.log(str.random()); // 'intrgt'
@@ -66,6 +67,7 @@ Default: _Same length as original array length._
 Length of a randomized array.
 
 > If no length, it'll return a randomized array with same length as the original array.
+
 ```javascript
 let arr = [1, 2, 3, 4, 5];
 console.log(arr.random()); // [5, 3, 2, 4, 4]
