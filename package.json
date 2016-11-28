@@ -23,8 +23,7 @@
   },
   "homepage": "https://github.com/gluons/pandom",
   "dependencies": {
-    "random-js": "^1.0.8",
-    "randomatic": "^1.1.6"
+    "random-js": "^1.0.8"
   },
   "devDependencies": {
     "ava": "^0.17.0"

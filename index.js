@@ -1,7 +1,6 @@
 'use strict';
 
 const Random = require('random-js');
-const randomize = require('randomatic');
 
 function eng() {
 	let engine = Random.engines.mt19937();
@@ -38,12 +37,18 @@ String.prototype.random = function (length) {
 	if (typeof length !== 'number') {
 		length = this.length;
 	}
-	return randomize('?', length, {
-		chars: this
-	});
+	return Random.string(this)(eng(), length);
 };
 
 String.prototype.shuffle = function () {
 	let strArr = Array.from(this);
 	return strArr.shuffle().join('');
+};
+
+Number.prototype.randomTo = function (end) {
+	return Random.real(this, end, true)(eng());
+};
+
+Number.prototype.randomFrom = function(start) {
+	return Random.real(start, this, true)(eng());
 };

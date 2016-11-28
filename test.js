@@ -37,3 +37,20 @@ test('String.prototype.shuffle()', t => {
 	t.is(shufStr.length, str.length, 'shuffled string has same length as original string');
 	t.notDeepEqual(shufStr, str, 'shuffled string is not equal to original string');
 });
+
+test('Number.prototype.randomTo(end)', t => {
+	let number = 0;
+	let randNumber1 = number.randomTo(5);
+	let randNumber2 = number.randomTo(-5);
+	t.is((randNumber1 >= 0) && (randNumber1 <= 5), true, 'randomized number within 0 and 5');
+	t.is((randNumber2 >= -5) && (randNumber2 <= 0), true, 'randomized number within -5 and 0');
+});
+
+test('Number.prototype.randomFrom(start)', t => {
+	let number1 = 0;
+	let number2 = 5;
+	let randNumber1 = number1.randomFrom(-5);
+	let randNumber2 = number2.randomFrom(0);
+	t.is((randNumber1 >= -5) && (randNumber1 <= 0), true, 'randomized number within -5 and 0');
+	t.is((randNumber2 >= 0) && (randNumber2 <= 5), true, 'randomized number within 0 and 5');
+});
