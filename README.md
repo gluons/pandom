@@ -86,3 +86,29 @@ Shuffle the original string.
 let str = 'string';
 console.log(str.shuffle()); // 'rgntsi'
 ```
+
+### Number.prototype.randomTo(end)
+Get a random number between **the current number** and `end`.
+
+#### end
+Type: `Number`
+
+The ending boundary.
+
+```javascript
+let n = 0;
+console.log(n.randomTo(5)); // 4.728512016075024
+```
+
+### Number.prototype.randomFrom(start)
+Get a random number between `start` and **the current number**.
+
+#### start
+Type: `Number`
+
+The beginning boundary.
+
+```javascript
+let n = 0;
+console.log(n.randomTo(5)); // 3.927804381475524
+```

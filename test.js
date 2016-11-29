@@ -39,18 +39,19 @@ test('String.prototype.shuffle()', t => {
 });
 
 test('Number.prototype.randomTo(end)', t => {
-	let number = 0;
-	let randNumber1 = number.randomTo(5);
-	let randNumber2 = number.randomTo(-5);
-	t.is((randNumber1 >= 0) && (randNumber1 <= 5), true, 'randomized number within 0 and 5');
-	t.is((randNumber2 >= -5) && (randNumber2 <= 0), true, 'randomized number within -5 and 0');
+	for (let i = -10; i <= 10; i++) {
+		let start = i;
+		let end = i + 2;
+		let randNumber = start.randomTo(end);
+		t.is((randNumber >= start) && (randNumber <= end), true, `randomized number within ${start} and ${end}`);
+	}
 });
 
 test('Number.prototype.randomFrom(start)', t => {
-	let number1 = 0;
-	let number2 = 5;
-	let randNumber1 = number1.randomFrom(-5);
-	let randNumber2 = number2.randomFrom(0);
-	t.is((randNumber1 >= -5) && (randNumber1 <= 0), true, 'randomized number within -5 and 0');
-	t.is((randNumber2 >= 0) && (randNumber2 <= 5), true, 'randomized number within 0 and 5');
+	for (let i = -10; i <= 10; i++) {
+		let start = i;
+		let end = i + 2;
+		let randNumber = end.randomFrom(start);
+		t.is((randNumber >= start) && (randNumber <= end), true, `randomized number within ${start} and ${end}`);
+	}
 });
