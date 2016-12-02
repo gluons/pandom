@@ -1,6 +1,6 @@
 'use strict';
 
-require('./');
+require('./pandom');
 
 const test = require('ava');
 

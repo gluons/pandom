@@ -2,7 +2,7 @@
   "name": "pandom",
   "version": "0.0.3",
   "description": "Randomize a primitive/built-in data type in JavaScript.",
-  "main": "index.js",
+  "main": "pandom.js",
   "scripts": {
     "test": "ava --verbose"
   },
