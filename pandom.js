@@ -8,7 +8,9 @@ function eng() {
 	return engine;
 }
 
-
+/*
+	Array
+*/
 Array.prototype.random = function(length) {
 	if (typeof length !== 'number') {
 		length = this.length;
@@ -33,6 +35,9 @@ Array.prototype.shuffle = function () {
 	return newArray;
 };
 
+/*
+	String
+*/
 String.prototype.random = function (length) {
 	if (typeof length !== 'number') {
 		length = this.length;
@@ -45,10 +50,40 @@ String.prototype.shuffle = function () {
 	return strArr.shuffle().join('');
 };
 
+/*
+	Number
+*/
 Number.prototype.randomTo = function (end) {
 	return Random.real(this, end, true)(eng());
 };
 
 Number.prototype.randomFrom = function(start) {
 	return Random.real(start, this, true)(eng());
+};
+
+/*
+	Date
+*/
+Date.prototype.randomHours = function () {
+	let newDate = new Date(this.getTime());
+	newDate.setHours(Random.integer(0, 23)(eng()));
+	return newDate;
+};
+
+Date.prototype.randomMinutes = function () {
+	let newDate = new Date(this.getTime());
+	newDate.setMinutes(Random.integer(0, 59)(eng()));
+	return newDate;
+};
+
+Date.prototype.randomSeconds = function () {
+	let newDate = new Date(this.getTime());
+	newDate.setSeconds(Random.integer(0, 59)(eng()));
+	return newDate;
+};
+
+Date.prototype.randomMilliseconds = function () {
+	let newDate = new Date(this.getTime());
+	newDate.setMilliseconds(Random.integer(0, 999)(eng()));
+	return newDate;
 };
