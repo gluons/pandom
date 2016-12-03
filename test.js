@@ -83,8 +83,8 @@ test('Date.prototype.randomHours()', t => {
 test('Date.prototype.randomMinutes()', t => {
 	let currentDate = new Date();
 	let newDate = currentDate.randomMinutes();
-	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is not equal to original hours.');
-	t.truthy(newDate.getMinutes() != currentDate.getMinutes(), 'new minutes is equal to original minutes.');
+	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is equal to original hours.');
+	t.truthy(newDate.getMinutes() != currentDate.getMinutes(), 'new minutes is not equal to original minutes.');
 	t.truthy(newDate.getSeconds() == currentDate.getSeconds(), 'new seconds is equal to original seconds.');
 	t.truthy(newDate.getMilliseconds() == currentDate.getMilliseconds(), 'new milliseconds is equal to original milliseconds.');
 	t.truthy(newDate.getDate() == currentDate.getDate(), 'new date is equal to original date.');
@@ -95,9 +95,9 @@ test('Date.prototype.randomMinutes()', t => {
 test('Date.prototype.randomSeconds()', t => {
 	let currentDate = new Date();
 	let newDate = currentDate.randomSeconds();
-	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is not equal to original hours.');
+	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is equal to original hours.');
 	t.truthy(newDate.getMinutes() == currentDate.getMinutes(), 'new minutes is equal to original minutes.');
-	t.truthy(newDate.getSeconds() != currentDate.getSeconds(), 'new seconds is equal to original seconds.');
+	t.truthy(newDate.getSeconds() != currentDate.getSeconds(), 'new seconds is not equal to original seconds.');
 	t.truthy(newDate.getMilliseconds() == currentDate.getMilliseconds(), 'new milliseconds is equal to original milliseconds.');
 	t.truthy(newDate.getDate() == currentDate.getDate(), 'new date is equal to original date.');
 	t.truthy(newDate.getMonth() == currentDate.getMonth(), 'new month is equal to original month.');
@@ -107,11 +107,60 @@ test('Date.prototype.randomSeconds()', t => {
 test('Date.prototype.randomMilliseconds()', t => {
 	let currentDate = new Date();
 	let newDate = currentDate.randomMilliseconds();
-	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is not equal to original hours.');
+	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is equal to original hours.');
 	t.truthy(newDate.getMinutes() == currentDate.getMinutes(), 'new minutes is equal to original minutes.');
 	t.truthy(newDate.getSeconds() == currentDate.getSeconds(), 'new seconds is equal to original seconds.');
-	t.truthy(newDate.getMilliseconds() != currentDate.getMilliseconds(), 'new milliseconds is equal to original milliseconds.');
+	t.truthy(newDate.getMilliseconds() != currentDate.getMilliseconds(), 'new milliseconds is not equal to original milliseconds.');
 	t.truthy(newDate.getDate() == currentDate.getDate(), 'new date is equal to original date.');
 	t.truthy(newDate.getMonth() == currentDate.getMonth(), 'new month is equal to original month.');
 	t.truthy(newDate.getFullYear() == currentDate.getFullYear(), 'new year is equal to original year.');
+});
+
+test('Date.prototype.randomDate()', t => {
+	let currentDate = new Date();
+	let newDate = currentDate.randomDate();
+	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is equal to original hours.');
+	t.truthy(newDate.getMinutes() == currentDate.getMinutes(), 'new minutes is equal to original minutes.');
+	t.truthy(newDate.getSeconds() == currentDate.getSeconds(), 'new seconds is equal to original seconds.');
+	t.truthy(newDate.getMilliseconds() == currentDate.getMilliseconds(), 'new milliseconds is equal to original milliseconds.');
+	t.truthy(newDate.getDate() != currentDate.getDate(), 'new date is not equal to original date.');
+	t.truthy(newDate.getMonth() == currentDate.getMonth(), 'new month is equal to original month.');
+	t.truthy(newDate.getFullYear() == currentDate.getFullYear(), 'new year is equal to original year.');
+});
+
+test('Date.prototype.randomMonth()', t => {
+	let currentDate = new Date();
+	let newDate = currentDate.randomMonth();
+	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is equal to original hours.');
+	t.truthy(newDate.getMinutes() == currentDate.getMinutes(), 'new minutes is equal to original minutes.');
+	t.truthy(newDate.getSeconds() == currentDate.getSeconds(), 'new seconds is equal to original seconds.');
+	t.truthy(newDate.getMilliseconds() == currentDate.getMilliseconds(), 'new milliseconds is equal to original milliseconds.');
+	t.truthy(newDate.getDate() == currentDate.getDate(), 'new date is equal to original date.');
+	t.truthy(newDate.getMonth() != currentDate.getMonth(), 'new month is not equal to original month.');
+	t.truthy(newDate.getFullYear() == currentDate.getFullYear(), 'new year is equal to original year.');
+});
+
+test('Date.prototype.randomYear()', t => {
+	let currentDate = new Date();
+	let newDate = currentDate.randomYear();
+	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is equal to original hours.');
+	t.truthy(newDate.getMinutes() == currentDate.getMinutes(), 'new minutes is equal to original minutes.');
+	t.truthy(newDate.getSeconds() == currentDate.getSeconds(), 'new seconds is equal to original seconds.');
+	t.truthy(newDate.getMilliseconds() == currentDate.getMilliseconds(), 'new milliseconds is equal to original milliseconds.');
+	t.truthy(newDate.getDate() == currentDate.getDate(), 'new date is equal to original date.');
+	t.truthy(newDate.getMonth() == currentDate.getMonth(), 'new month is equal to original month.');
+	t.truthy(newDate.getFullYear() != currentDate.getFullYear(), 'new year is not equal to original year.');
+});
+
+test('Date.prototype.randomYear(3000)', t => {
+	let currentDate = new Date();
+	let newDate = currentDate.randomYear(3000);
+	t.truthy(newDate.getHours() == currentDate.getHours(), 'new hours is equal to original hours.');
+	t.truthy(newDate.getMinutes() == currentDate.getMinutes(), 'new minutes is equal to original minutes.');
+	t.truthy(newDate.getSeconds() == currentDate.getSeconds(), 'new seconds is equal to original seconds.');
+	t.truthy(newDate.getMilliseconds() == currentDate.getMilliseconds(), 'new milliseconds is equal to original milliseconds.');
+	t.truthy(newDate.getDate() == currentDate.getDate(), 'new date is equal to original date.');
+	t.truthy(newDate.getMonth() == currentDate.getMonth(), 'new month is equal to original month.');
+	t.truthy(newDate.getFullYear() != currentDate.getFullYear(), 'new year is not equal to original year.');
+	t.truthy(newDate.getFullYear() <= 3000, 'new year is less than or equal to 3000.');
 });
