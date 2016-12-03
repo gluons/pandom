@@ -114,7 +114,10 @@ Date.prototype.randomMonth = function () {
 	return newDate;
 };
 
-Date.prototype.randomYear = function (maxYear = MAX_YEAR) {
+Date.prototype.randomYear = function (maxYear) {
+	if ((typeof maxYear === 'undefined') || (maxYear == null)) {
+		maxYear = MAX_YEAR;
+	}
 	let newDate = dClone(this);
 	newDate.setFullYear(Random.integer(1970, maxYear)(eng()));
 	return newDate;
