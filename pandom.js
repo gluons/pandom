@@ -3,13 +3,10 @@
 const Random = require('random-js');
 const monthDays = require('month-days');
 
-/*
-	Maximum date is a date with 8640000000000000 milliseconds since 01 January, 1970 UTC.
-	So, the max year is 275760. ( From `(new Date(8640000000000000)).getFullYear()` )
+const dateLib = require('./lib/date');
 
-	More info -> http://stackoverflow.com/questions/11526504/minimum-and-maximum-date
-*/
-const MAX_YEAR = 275760;
+const MAX_DATE = dateLib.MAX_DATE;
+const MAX_YEAR = dateLib.MAX_YEAR;
 
 function eng() {
 	let engine = Random.engines.mt19937();
@@ -17,9 +14,16 @@ function eng() {
 	return engine;
 }
 
-function dClone (date) {
-	return new Date(date.getTime());
+function ensureRand (min, max, old) {
+	let rand = Random.integer(min, max)(eng());
+	while (rand == old) {
+		rand = Random.integer(min, max)(eng());
+	}
+	return rand;
 }
+
+let dClone = dateLib.dateClone;
+let dRandF = dateLib.dateRandomFunc;
 
 /*
 	Array
@@ -79,46 +83,61 @@ Number.prototype.randomFrom = function(start) {
 */
 Date.prototype.randomHours = function () {
 	let newDate = dClone(this);
-	newDate.setHours(Random.integer(0, 23)(eng()));
+	newDate.setHours(ensureRand(0, 23, this.getHours()));
 	return newDate;
 };
 
 Date.prototype.randomMinutes = function () {
 	let newDate = dClone(this);
-	newDate.setMinutes(Random.integer(0, 59)(eng()));
+	newDate.setMinutes(ensureRand(0, 59, this.getMinutes()));
 	return newDate;
 };
 
 Date.prototype.randomSeconds = function () {
 	let newDate = dClone(this);
-	newDate.setSeconds(Random.integer(0, 59)(eng()));
+	newDate.setSeconds(ensureRand(0, 59, this.getSeconds()));
 	return newDate;
 };
 
 Date.prototype.randomMilliseconds = function () {
 	let newDate = dClone(this);
-	newDate.setMilliseconds(Random.integer(0, 999)(eng()));
+	newDate.setMilliseconds(ensureRand(0, 999, this.getMilliseconds()));
 	return newDate;
 };
 
 Date.prototype.randomDate = function () {
 	let lastDate = monthDays(this.getMonth(), this.getFullYear());
 	let newDate = dClone(this);
-	newDate.setDate(Random.integer(1, lastDate)(eng()));
+	newDate.setDate(ensureRand(1, lastDate, this.getDate()));
 	return newDate;
 };
 
 Date.prototype.randomMonth = function () {
 	let newDate = dClone(this);
-	newDate.setMonth(Random.integer(0, 11)(eng()));
+	newDate.setMonth(ensureRand(0, 11, this.getMonth()));
 	return newDate;
 };
 
-Date.prototype.randomYear = function (maxYear) {
-	if ((typeof maxYear === 'undefined') || (maxYear == null)) {
-		maxYear = MAX_YEAR;
-	}
+Date.prototype.randomYear = function () {
 	let newDate = dClone(this);
-	newDate.setFullYear(Random.integer(1970, maxYear)(eng()));
+	newDate.setFullYear(ensureRand(1970, MAX_YEAR, this.getFullYear()));
 	return newDate;
+};
+
+Date.prototype.random = function () {
+	if (arguments.length > 0) {
+		let newDate = dClone(this);
+		for (let i = 0; i < arguments.length; i++) {
+			let target = arguments[i];
+			if (typeof target === 'string') {
+				let randFunc = dRandF(target);
+				if (typeof randFunc === 'function') {
+					newDate = randFunc.call(newDate);
+				}
+			}
+		}
+		return newDate;
+	} else {
+		return Random.date(new Date(0), MAX_DATE)(eng());
+	}
 };

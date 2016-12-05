@@ -112,3 +112,94 @@ The beginning boundary.
 let n = 0;
 console.log(n.randomTo(5)); // 3.927804381475524
 ```
+
+### Date.prototype.randomHours()
+Return a date with randomized **hours**.
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.randomHours();
+
+console.log(newDate.toString()); // -> Fri 1 Jan 2016 09:15:20:50
+```
+
+### Date.prototype.randomMinutes()
+Return a date with randomized **minutes**.
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.randomMinutes();
+
+console.log(newDate.toString()); // -> Fri 1 Jan 2016 05:58:20:50
+```
+
+### Date.prototype.randomSeconds()
+Return a date with randomized **seconds**.
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.randomSeconds();
+
+console.log(newDate.toString()); // -> Fri 1 Jan 2016 05:15:47:50
+```
+
+### Date.prototype.randomMilliseconds()
+Return a date with randomized **milliseconds**.
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.randomMilliseconds();
+
+console.log(newDate.toString()); // -> Fri 1 Jan 2016 05:15:20:316
+```
+
+### Date.prototype.randomDate()
+Return a date with randomized **date**.
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.randomDate();
+
+console.log(newDate.toString()); // -> Mon 18 Jan 2016 05:15:20:50
+```
+
+### Date.prototype.randomMonth()
+Return a date with randomized **month**.
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.randomMonth();
+
+console.log(newDate.toString()); // -> Thu 1 Sep 2016 05:15:20:50
+```
+
+### Date.prototype.randomYear()
+Return a date with randomized **year**.
+
+> Randomize year will be within `1970` and `275760` (maximum year in JavaScript - see http://stackoverflow.com/a/11526569/1675907).
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.randomMonth();
+
+console.log(newDate.toString()); // -> Mon 1 Jan 61134 05:15:20:50
+```
+
+### Date.prototype.random([...targets])
+Return a date with randomized whole date that can be determined the precision by `targets`.
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.random('hour', 'date', 'month');
+
+console.log(newDate.toString()); // -> Wed 21 Dec 2016 10:15:20:50
+```
+
+If no `targets` given, it'll return a date between `new Date(0)` and `new Date(8640000000000000)` (maximum date in JavaScript - see http://stackoverflow.com/a/11526569/1675907).
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.random();
+
+console.log(newDate.toString()); // -> Wed 13 May 152458 09:58:28:825
+```
