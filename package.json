@@ -1,6 +1,6 @@
 {
   "name": "pandom",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Randomize a primitive/built-in data type in JavaScript.",
   "main": "pandom.js",
   "scripts": {
