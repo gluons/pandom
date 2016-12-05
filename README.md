@@ -1,5 +1,5 @@
 # Pandom
-[![license](https://img.shields.io/github/license/gluons/pandom.svg?style=flat-square)](https://github.com/gluons/pandom/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/gluons/pandom.svg?style=flat-square)](/blob/master/LICENSE)
 [![npm](https://img.shields.io/npm/v/pandom.svg?style=flat-square)](https://www.npmjs.com/package/pandom)
 [![npm](https://img.shields.io/npm/dt/pandom.svg?style=flat-square)](https://www.npmjs.com/package/pandom)
 [![Travis](https://img.shields.io/travis/gluons/pandom.svg?style=flat-square)](https://travis-ci.org/gluons/pandom)
@@ -28,6 +28,28 @@ require('pandom');
 ```
 
 ## API
+
+**Table of Contents**
+- Array
+  - [`Array.prototype.random(length)`](#arrayprototyperandomlength)
+  - [`Array.prototype.shuffle()`](#arrayprototypeshuffle)
+- String
+  - [`String.prototype.random(length)`](#stringprototyperandomlength)
+  - [`String.prototype.shuffle()`](#stringprototypeshuffle)
+- Number
+  - [`Number.prototype.randomTo(end)`](#numberprototyperandomtoend)
+  - [`Number.prototype.randomFrom(start)`](#numberprototyperandomfromstart)
+- Date
+  - [`Date.prototype.randomHours()`](#dateprototyperandomhours)
+  - [`Date.prototype.randomMinutes()`](#dateprototyperandomminutes)
+  - [`Date.prototype.randomSeconds()`](#dateprototyperandomseconds)
+  - [`Date.prototype.randomMilliseconds()`](#dateprototyperandommilliseconds)
+  - [`Date.prototype.randomDate()`](#dateprototyperandomdate)
+  - [`Date.prototype.randomMonth()`](#dateprototyperandommonth)
+  - [`Date.prototype.randomYear()`](#dateprototyperandomyear)
+  - [`Date.prototype.random([...targets])`](#dateprototyperandomtargets)
+
+---
 
 ### Array.prototype.random(length)
 Randomize an array from the original array.
@@ -58,6 +80,8 @@ let arr = [1, 2, 3, 4, 5];
 console.log(arr.shuffle()); // [1, 4, 5, 3, 2]
 ```
 
+---
+
 ### String.prototype.random(length)
 Randomize a string from the original string.
 
@@ -87,6 +111,8 @@ let str = 'string';
 console.log(str.shuffle()); // 'rgntsi'
 ```
 
+---
+
 ### Number.prototype.randomTo(end)
 Get a random number between **the current number** and `end`.
 
@@ -112,6 +138,8 @@ The beginning boundary.
 let n = 0;
 console.log(n.randomTo(5)); // 3.927804381475524
 ```
+
+---
 
 ### Date.prototype.randomHours()
 Return a date with randomized **hours**.
@@ -180,7 +208,7 @@ Return a date with randomized **year**.
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
-let newDate = date.randomMonth();
+let newDate = date.randomYear();
 
 console.log(newDate.toString()); // -> Mon 1 Jan 61134 05:15:20:50
 ```
