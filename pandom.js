@@ -8,7 +8,7 @@ const dateLib = require('./lib/date');
 const MAX_DATE = dateLib.MAX_DATE;
 const MAX_YEAR = dateLib.MAX_YEAR;
 
-function eng() {
+function eng () {
 	let engine = Random.engines.mt19937();
 	engine.autoSeed();
 	return engine;
@@ -28,7 +28,7 @@ let dRandF = dateLib.dateRandomFunc;
 /*
 	Array
 */
-Array.prototype.random = function(length) {
+Array.prototype.random = function (length) {
 	if (typeof length !== 'number') {
 		length = this.length;
 	}
@@ -74,7 +74,7 @@ Number.prototype.randomTo = function (end) {
 	return Random.real(this, end, true)(eng());
 };
 
-Number.prototype.randomFrom = function(start) {
+Number.prototype.randomFrom = function (start) {
 	return Random.real(start, this, true)(eng());
 };
 

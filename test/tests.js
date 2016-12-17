@@ -20,7 +20,7 @@ describe('Array', () => {
 			let randArr = arr.random();
 			assert.lengthOf(randArr, arr.length);
 			assert.notDeepEqual(randArr, arr);
-			for(let item of randArr) {
+			for (let item of randArr) {
 				assert.include(arr, item);
 			}
 		});
@@ -32,7 +32,7 @@ describe('Array', () => {
 				let randArr = arr.random(i);
 				assert.lengthOf(randArr, i);
 				assert.notDeepEqual(randArr, arr);
-				for(let item of randArr) {
+				for (let item of randArr) {
 					assert.include(arr, item);
 				}
 			});
@@ -56,7 +56,7 @@ describe('String', () => {
 			let randStr = str.random();
 			assert.lengthOf(randStr, str.length);
 			assert.notDeepEqual(randStr, str);
-			for(let char of randStr) {
+			for (let char of randStr) {
 				assert.include(str, char);
 			}
 		});
@@ -68,7 +68,7 @@ describe('String', () => {
 				let randStr = str.random(i);
 				assert.lengthOf(randStr, i);
 				assert.notDeepEqual(randStr, str);
-				for(let item of randStr) {
+				for (let item of randStr) {
 					assert.include(str, item);
 				}
 			});
@@ -203,18 +203,16 @@ describe('Date', () => {
 			assert.isAtMost(newDate.getFullYear(), MAX_DATE.getFullYear());
 		});
 	});
-	(function() {
+	(function () {
 		let targets = ['hours', 'minutes', 'seconds', 'milliseconds', 'date', 'month', 'year'];
 		let targetsPowerSet = Combinatorics.power(targets);
-		targetsPowerSet.forEach((newTargets) => {
-			let parameterStr = newTargets.map((newTarget) => {
-				return `'${newTarget}'`;
-			}).join(', ');
+		targetsPowerSet.forEach(newTargets => {
+			let parameterStr = newTargets.map(newTarget => `'${newTarget}'`).join(', ');
 			describe(`Date.prototype.random(${parameterStr})`, () => {
 				if (newTargets.length > 0) {
 					let currentDate = new Date();
 					let newDate = Date.prototype.random.apply(currentDate, newTargets);
-					newTargets.forEach((newTarget) => {
+					newTargets.forEach(newTarget => {
 						it(`'${newTarget}' should be randomized`, () => {
 							if (/^hour(s?)$/.test(newTarget)) {
 								assert.isFalse(Comparer.hrs(newDate, currentDate));

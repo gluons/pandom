@@ -4,6 +4,7 @@
   "description": "Randomize a primitive/built-in data type in JavaScript.",
   "main": "pandom.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "mocha"
   },
   "repository": {
