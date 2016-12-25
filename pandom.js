@@ -89,7 +89,7 @@ String.prototype.random = function (length) {
 
 /**
  * Shuffle the original string.
- * @return {[type]} Shuffled string
+ * @return {String} Shuffled string
  */
 String.prototype.shuffle = function () {
 	let strArr = Array.from(this);
