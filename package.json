@@ -25,6 +25,7 @@
   "homepage": "https://github.com/gluons/pandom",
   "dependencies": {
     "month-days": "^2.1.0",
+    "nvl": "^1.0.1",
     "random-js": "^1.0.8"
   },
   "devDependencies": {
