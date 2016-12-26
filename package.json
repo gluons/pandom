@@ -32,6 +32,8 @@
     "chai": "*",
     "chai-datetime": "^1.4.1",
     "date-eq": "^1.0.0",
+    "eslint": "^3.12.2",
+    "eslint-config-gluons": "^1.0.2",
     "js-combinatorics": "^0.5.2",
     "mocha": "*"
   }
