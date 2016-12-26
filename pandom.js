@@ -2,6 +2,7 @@
 
 const Random = require('random-js');
 const monthDays = require('month-days');
+const nvl = require('nvl');
 
 const dateLib = require('./lib/date');
 
@@ -124,9 +125,11 @@ Number.prototype.randomFrom = function (start) {
  * Return a date with randomized hours.
  * @return {Date} A date with randomized hours
  */
-Date.prototype.randomHours = function () {
+Date.prototype.randomHours = function (min, max) {
+	min = nvl(min, 0);
+	max = nvl(max, 23);
 	let newDate = dClone(this);
-	newDate.setHours(ensureRand(0, 23, this.getHours()));
+	newDate.setHours(ensureRand(min, max, this.getHours()));
 	return newDate;
 };
 
@@ -134,9 +137,11 @@ Date.prototype.randomHours = function () {
  * Return a date with randomized minutes.
  * @return {Date} A date with randomized minutes
  */
-Date.prototype.randomMinutes = function () {
+Date.prototype.randomMinutes = function (min, max) {
+	min = nvl(min, 0);
+	max = nvl(max, 59);
 	let newDate = dClone(this);
-	newDate.setMinutes(ensureRand(0, 59, this.getMinutes()));
+	newDate.setMinutes(ensureRand(min, max, this.getMinutes()));
 	return newDate;
 };
 
@@ -144,9 +149,11 @@ Date.prototype.randomMinutes = function () {
  * Return a date with randomized seconds.
  * @return {Date} A date with randomized seconds
  */
-Date.prototype.randomSeconds = function () {
+Date.prototype.randomSeconds = function (min, max) {
+	min = nvl(min, 0);
+	max = nvl(max, 59);
 	let newDate = dClone(this);
-	newDate.setSeconds(ensureRand(0, 59, this.getSeconds()));
+	newDate.setSeconds(ensureRand(min, max, this.getSeconds()));
 	return newDate;
 };
 
@@ -154,9 +161,11 @@ Date.prototype.randomSeconds = function () {
  * Return a date with randomized milliseconds.
  * @return {Date} A date with randomized milliseconds
  */
-Date.prototype.randomMilliseconds = function () {
+Date.prototype.randomMilliseconds = function (min, max) {
+	min = nvl(min, 0);
+	max = nvl(max, 999);
 	let newDate = dClone(this);
-	newDate.setMilliseconds(ensureRand(0, 999, this.getMilliseconds()));
+	newDate.setMilliseconds(ensureRand(min, max, this.getMilliseconds()));
 	return newDate;
 };
 
@@ -164,10 +173,12 @@ Date.prototype.randomMilliseconds = function () {
  * Return a date with randomized date.
  * @return {Date} A date with randomized date
  */
-Date.prototype.randomDate = function () {
+Date.prototype.randomDate = function (min, max) {
 	let lastDate = monthDays(this.getMonth(), this.getFullYear());
+	min = nvl(min, 1);
+	max = nvl(max, lastDate);
 	let newDate = dClone(this);
-	newDate.setDate(ensureRand(1, lastDate, this.getDate()));
+	newDate.setDate(ensureRand(min, max, this.getDate()));
 	return newDate;
 };
 
@@ -175,9 +186,11 @@ Date.prototype.randomDate = function () {
  * Return a date with randomized month.
  * @return {Date} A date with randomized month
  */
-Date.prototype.randomMonth = function () {
+Date.prototype.randomMonth = function (min, max) {
+	min = nvl(min, 0);
+	max = nvl(max, 11);
 	let newDate = dClone(this);
-	newDate.setMonth(ensureRand(0, 11, this.getMonth()));
+	newDate.setMonth(ensureRand(min, max, this.getMonth()));
 	return newDate;
 };
 
@@ -185,9 +198,11 @@ Date.prototype.randomMonth = function () {
  * Return a date with randomized year.
  * @return {Date} A date with randomized year
  */
-Date.prototype.randomYear = function () {
+Date.prototype.randomYear = function (min, max) {
+	min = nvl(min, 1970);
+	max = nvl(max, MAX_YEAR);
 	let newDate = dClone(this);
-	newDate.setFullYear(ensureRand(1970, MAX_YEAR, this.getFullYear()));
+	newDate.setFullYear(ensureRand(min, max, this.getFullYear()));
 	return newDate;
 };
 
