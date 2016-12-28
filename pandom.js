@@ -123,7 +123,9 @@ Number.prototype.randomFrom = function (start) {
 */
 /**
  * Return a date with randomized hours.
- * @return {Date} A date with randomized hours
+ * @param  {Number} min The minimum boundary
+ * @param  {Number} max The maximum boundary
+ * @return {Date}       A date with randomized hours
  */
 Date.prototype.randomHours = function (min, max) {
 	min = nvl(min, 0);
@@ -135,7 +137,9 @@ Date.prototype.randomHours = function (min, max) {
 
 /**
  * Return a date with randomized minutes.
- * @return {Date} A date with randomized minutes
+ * @param  {Number} min The minimum boundary
+ * @param  {Number} max The maximum boundary
+ * @return {Date}       A date with randomized minutes
  */
 Date.prototype.randomMinutes = function (min, max) {
 	min = nvl(min, 0);
@@ -147,7 +151,9 @@ Date.prototype.randomMinutes = function (min, max) {
 
 /**
  * Return a date with randomized seconds.
- * @return {Date} A date with randomized seconds
+ * @param  {Number} min The minimum boundary
+ * @param  {Number} max The maximum boundary
+ * @return {Date}       A date with randomized seconds
  */
 Date.prototype.randomSeconds = function (min, max) {
 	min = nvl(min, 0);
@@ -159,7 +165,9 @@ Date.prototype.randomSeconds = function (min, max) {
 
 /**
  * Return a date with randomized milliseconds.
- * @return {Date} A date with randomized milliseconds
+ * @param  {Number} min The minimum boundary
+ * @param  {Number} max The maximum boundary
+ * @return {Date}       A date with randomized milliseconds
  */
 Date.prototype.randomMilliseconds = function (min, max) {
 	min = nvl(min, 0);
@@ -171,7 +179,9 @@ Date.prototype.randomMilliseconds = function (min, max) {
 
 /**
  * Return a date with randomized date.
- * @return {Date} A date with randomized date
+ * @param  {Number} min The minimum boundary
+ * @param  {Number} max The maximum boundary
+ * @return {Date}       A date with randomized date
  */
 Date.prototype.randomDate = function (min, max) {
 	let lastDate = monthDays(this.getMonth(), this.getFullYear());
@@ -184,7 +194,9 @@ Date.prototype.randomDate = function (min, max) {
 
 /**
  * Return a date with randomized month.
- * @return {Date} A date with randomized month
+ * @param  {Number} min The minimum boundary
+ * @param  {Number} max The maximum boundary
+ * @return {Date}       A date with randomized month
  */
 Date.prototype.randomMonth = function (min, max) {
 	min = nvl(min, 0);
@@ -196,7 +208,9 @@ Date.prototype.randomMonth = function (min, max) {
 
 /**
  * Return a date with randomized year.
- * @return {Date} A date with randomized year
+ * @param  {Number} min The minimum boundary
+ * @param  {Number} max The maximum boundary
+ * @return {Date}       A date with randomized year
  */
 Date.prototype.randomYear = function (min, max) {
 	min = nvl(min, 1970);
