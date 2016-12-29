@@ -40,13 +40,13 @@ require('pandom');
   - [`Number.prototype.randomTo(end)`](#numberprototyperandomtoend)
   - [`Number.prototype.randomFrom(start)`](#numberprototyperandomfromstart)
 - Date
-  - [`Date.prototype.randomHours()`](#dateprototyperandomhours)
-  - [`Date.prototype.randomMinutes()`](#dateprototyperandomminutes)
-  - [`Date.prototype.randomSeconds()`](#dateprototyperandomseconds)
-  - [`Date.prototype.randomMilliseconds()`](#dateprototyperandommilliseconds)
-  - [`Date.prototype.randomDate()`](#dateprototyperandomdate)
-  - [`Date.prototype.randomMonth()`](#dateprototyperandommonth)
-  - [`Date.prototype.randomYear()`](#dateprototyperandomyear)
+  - [`Date.prototype.randomHours()`](#dateprototyperandomhoursmin-max)
+  - [`Date.prototype.randomMinutes()`](#dateprototyperandomminutesmin-max)
+  - [`Date.prototype.randomSeconds()`](#dateprototyperandomsecondsmin-max)
+  - [`Date.prototype.randomMilliseconds()`](#dateprototyperandommillisecondsmin-max)
+  - [`Date.prototype.randomDate()`](#dateprototyperandomdatemin-max)
+  - [`Date.prototype.randomMonth()`](#dateprototyperandommonthmin-max)
+  - [`Date.prototype.randomYear()`](#dateprototyperandomyearmin-max)
   - [`Date.prototype.random([...targets])`](#dateprototyperandomtargets)
 
 ---
