@@ -230,11 +230,16 @@ Date.prototype.random = function () {
 		let newDate = dClone(this);
 		for (let i = 0; i < arguments.length; i++) {
 			let target = arguments[i];
-			if (typeof target === 'string') {
-				let randFunc = dRandF(target);
-				if (typeof randFunc === 'function') {
-					newDate = randFunc.call(newDate);
-				}
+
+			if (
+				(typeof target === 'object') &&
+				(target.hasOwnProperty('target') && (typeof target.target === 'string')) &&
+				(target.hasOwnProperty('min') && (typeof target.min === 'number')) &&
+				(target.hasOwnProperty('max') && (typeof target.max === 'number'))
+			) {
+				newDate = dRandF(target.target).call(newDate, target.min, target.max);
+			} else if (typeof target === 'string') {
+				newDate = dRandF(target).call(newDate);
 			}
 		}
 		return newDate;
