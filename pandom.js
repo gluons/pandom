@@ -222,8 +222,8 @@ Date.prototype.randomYear = function (min, max) {
 
 /**
  * Return a date with randomized whole date that can be determined the precision by targets.
- * @param {...String} targets The precision to determine which part of date will be randomize
- * @return {Date}             A randomized date
+ * @param {...String | ...Object} targets The precision to determine which part of date will be randomize
+ * @return {Date}                 A randomized date
  */
 Date.prototype.random = function () {
 	if (arguments.length > 0) {
