@@ -141,8 +141,18 @@ console.log(n.randomTo(5)); // 3.927804381475524
 
 ---
 
-### Date.prototype.randomHours()
-Return a date with randomized **hours**.
+### Date.prototype.randomHours([min, max])
+Return a date with randomized **hours** (within `min` and `max` if given).
+
+#### min
+Type: `Number`
+
+Minimum boundary.
+
+#### max
+Type: `Number`
+
+Maximum boundary
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
@@ -151,8 +161,18 @@ let newDate = date.randomHours();
 console.log(newDate.toString()); // -> Fri 1 Jan 2016 09:15:20:50
 ```
 
-### Date.prototype.randomMinutes()
-Return a date with randomized **minutes**.
+### Date.prototype.randomMinutes([min, max])
+Return a date with randomized **minutes** (within `min` and `max` if given).
+
+#### min
+Type: `Number`
+
+Minimum boundary.
+
+#### max
+Type: `Number`
+
+Maximum boundary
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
@@ -161,8 +181,18 @@ let newDate = date.randomMinutes();
 console.log(newDate.toString()); // -> Fri 1 Jan 2016 05:58:20:50
 ```
 
-### Date.prototype.randomSeconds()
-Return a date with randomized **seconds**.
+### Date.prototype.randomSeconds([min, max])
+Return a date with randomized **seconds** (within `min` and `max` if given).
+
+#### min
+Type: `Number`
+
+Minimum boundary.
+
+#### max
+Type: `Number`
+
+Maximum boundary
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
@@ -171,8 +201,18 @@ let newDate = date.randomSeconds();
 console.log(newDate.toString()); // -> Fri 1 Jan 2016 05:15:47:50
 ```
 
-### Date.prototype.randomMilliseconds()
-Return a date with randomized **milliseconds**.
+### Date.prototype.randomMilliseconds([min, max])
+Return a date with randomized **milliseconds** (within `min` and `max` if given).
+
+#### min
+Type: `Number`
+
+Minimum boundary.
+
+#### max
+Type: `Number`
+
+Maximum boundary
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
@@ -181,8 +221,18 @@ let newDate = date.randomMilliseconds();
 console.log(newDate.toString()); // -> Fri 1 Jan 2016 05:15:20:316
 ```
 
-### Date.prototype.randomDate()
-Return a date with randomized **date**.
+### Date.prototype.randomDate([min, max])
+Return a date with randomized **date** (within `min` and `max` if given).
+
+#### min
+Type: `Number`
+
+Minimum boundary.
+
+#### max
+Type: `Number`
+
+Maximum boundary
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
@@ -191,8 +241,18 @@ let newDate = date.randomDate();
 console.log(newDate.toString()); // -> Mon 18 Jan 2016 05:15:20:50
 ```
 
-### Date.prototype.randomMonth()
-Return a date with randomized **month**.
+### Date.prototype.randomMonth([min, max])
+Return a date with randomized **month** (within `min` and `max` if given).
+
+#### min
+Type: `Number`
+
+Minimum boundary.
+
+#### max
+Type: `Number`
+
+Maximum boundary
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
@@ -201,10 +261,20 @@ let newDate = date.randomMonth();
 console.log(newDate.toString()); // -> Thu 1 Sep 2016 05:15:20:50
 ```
 
-### Date.prototype.randomYear()
-Return a date with randomized **year**.
+### Date.prototype.randomYear([min, max])
+Return a date with randomized **year** (within `min` and `max` if given).
 
 > Randomize year will be within `1970` and `275760` (maximum year in JavaScript - see http://stackoverflow.com/a/11526569/1675907).
+
+#### min
+Type: `Number`
+
+Minimum boundary.
+
+#### max
+Type: `Number`
+
+Maximum boundary
 
 ```javascript
 let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
@@ -230,4 +300,34 @@ let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
 let newDate = date.random();
 
 console.log(newDate.toString()); // -> Wed 13 May 152458 09:58:28:825
+```
+
+#### With range
+
+`targets` can be objects with `min` and `max` range. And give a `target` as property in the object.
+
+##### target
+Type: `String`
+
+A target to be randomized. Use to determine the precision.
+
+##### min
+Type: `Number`
+
+Minimum boundary.
+
+##### max
+Type: `Number`
+
+Maximum boundary
+
+```javascript
+let date = new Date(2016, 0, 1, 5, 15, 20, 50); // Fri 1 Jan 2016 05:15:20:50
+let newDate = date.random(
+	{ target: 'hour', min: 8, max: 12 },
+	{ target: 'date', min: 10, max: 20 },
+	{ target: 'month', min: 5, max: 8 }
+);
+
+console.log(newDate.toString()); // -> Thu 11 Aug 2016 08:15:20:50
 ```
